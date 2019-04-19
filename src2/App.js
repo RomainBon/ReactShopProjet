@@ -3,7 +3,7 @@ import Nav from './Nav';
 import './index.css';
 import ItemPage from './ItemPage';
 import CartPage from './CartPage'; 
-import {items} from './static-data';
+import{items} from './static-data';
 
 class App extends Component {
 	
@@ -21,21 +21,8 @@ class App extends Component {
 			
 		});
 		
-  }
-  
-  handleRemoveOne = (item)=>{
-    let index = this.state.cart.indexOf(item.id);
-    this.setState({
-      cart:[
-        ...this.state.cart.slice(0,index),
-        ...this.state.cart.slice(index+1)
-      ]
-    })
-  }
-
-
-
-    // Rappel ES6  du spread operator 
+	}
+// Rappel ES6  du spread operator 
 /*
    let a = [1,2,3];
    let b = [a,4] ;  // [[1,2,3],4]
@@ -93,7 +80,7 @@ class App extends Component {
 
 			);
 			
-			return ( this.cart=="" ? (<h1>Panier Vide</h1>) : (<CartPage items={cartItems} onAddOne={this.handleAddToCart} onRemoveOne={this.handleRemoveOne}/>))
+			return ( <CartPage items={cartItems} />)
 			
 		}
 		
