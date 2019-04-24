@@ -5,9 +5,9 @@ import Item from './Item';
 
 
 function CartPage ({items,onAddOne,onRemoveOne}){
-	
+
 	return(
-	
+		<div>
 	     <ul className="CartPage-items">
 		 { items.map( item =>
 		 
@@ -20,10 +20,22 @@ function CartPage ({items,onAddOne,onRemoveOne}){
 			</li>
 		  )}
 		 </ul>
-	
+		 <p className="Item-right" >total : {total(items)} €</p>
+	</div>
 	
 	)
 	
+}
+
+function total(items)
+{
+	let total=0;
+	items.map( 
+		item =>{
+			total +=  item.price*item.count;
+		}
+	)
+	return total;
 }
 
 

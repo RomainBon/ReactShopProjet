@@ -32,22 +32,10 @@ class App extends Component {
       ]
     })
   }
-
-
-
-    // Rappel ES6  du spread operator 
-/*
-   let a = [1,2,3];
-   let b = [a,4] ;  // [[1,2,3],4]
-   let c = [...a,4] ; // [1,2,3,4]  
-
-*/
-
 	tabChange = (index)=>{
 		
 		this.setState({activeTab:index});
 	}
-	
 	
 	renderContent(){
 		
@@ -58,7 +46,6 @@ class App extends Component {
 		}
 	}	
 		
-	
 		renderCart(){
 			
 			// combien d'item dans le panier 
@@ -93,43 +80,9 @@ class App extends Component {
 
 			);
 			
-			return ( this.cart=="" ? (<h1>Panier Vide</h1>) : (<CartPage items={cartItems} onAddOne={this.handleAddToCart} onRemoveOne={this.handleRemoveOne}/>))
+			return ( this.state.cart.length==0 ? (<p>Votre panier est vide</p>) : (<CartPage items={cartItems} onAddOne={this.handleAddToCart} onRemoveOne={this.handleRemoveOne}/>))
 			
-		}
-		
-		/* Rappel ES6 avec Reduce */
-		/*
-		  let a =[1,2,3,4];
-		  let total = a.reduce( (sum,value) =>{
-			  
-			  return sum + value;
-			  
-		  },0)
-		
-		
-		 //      (0,1)  => 1
-				 (1,2)  => 3
-				 (3,3)  => 6
-				 (6,4)  => 10 
-			// la fonction reduce retourne le dernier element 
-		
-		*/
-		/*
-		  const  a =[1,2,3,4];
-		  let total =0;
-		  
-		  for( let i=0; i < a.length; i++){
-			  total +=a[i]  // total = total + a[i]
-		  }
-		
-		*/
-		
-		
-		
-		
-		
-		
-		
+		}	
     render() {
 		
 	let {activeTab} = this.state;
